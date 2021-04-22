@@ -50,11 +50,11 @@ file is).
 
 4. Run the program as follows to generate a default config file (which you can then edit):
    ```
-   python ../src/main.py myconfig.json --default-config
+   python ./src/main.py myconfig.json --default-config
    ```
    or, use an existing config file with:
    ```
-   python ../src/main.py <existing_config.json>
+   python ./src/main.py <existing_config.json>
    ```
 
 5. Deactivate the virtual environment when you are finished by typing:
