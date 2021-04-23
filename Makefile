@@ -34,7 +34,7 @@ venv :
 	@echo "CREATING VENV AT $(VENVDIR)"
 	$(PYTHON) -m venv $(VENVDIR)
 
-run :
+default :
 	@source $(VENVDIR)/bin/activate; \
 	$(PYTHON) $(SRCDIR)/main.py ./config/default-config.json --default-config; \
 	deactivate
@@ -58,8 +58,8 @@ zip : clean
 help:
 	@echo " Makefile usage:"
 	@echo "	make clean   - remove compressed files and __pycache__"
+	@echo "	make default - starts optimization with a default configuration file"
 	@echo "	make install - installs all dependencies in a venv, creating the venv if necessary"
-	@echo "	make run     - starts model inference using start_inference.sh"
 	@echo "	make train   - trains the model according to the start_training.sh"
 	@echo "	make venv    - creates a venv. This is called when make install is used."
 	@echo ""

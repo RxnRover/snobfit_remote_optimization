@@ -5,16 +5,16 @@ def generate_default_config(filename):
 
     config = {
         "init_from_config": True,
-        "param_init": [ 33.333, 33.333, 30 ],
-        "bounds": [ [ 0, 50 ],
-		    [ 0, 50 ],
-		    [ 28, 68 ] ],
+        "param_init": [ 0.5, 0.5 ],
+        "bounds": [ [ -5.12, 5.12 ],
+		    [ -5.12, 5.12 ] ],
         "budget": 1000,
         "options": { "minfcall": None,
 		     "maxmp": None,
 		     "maxfail": 5,
 		     "verbose": False
         },
+        "direction": "min",
         "ip_address" : "tcp://127.0.0.1", # localhost using tcp
         "port"       : "5555",            # default port
     }

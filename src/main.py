@@ -96,7 +96,7 @@ def main():
 
     options = SQSnobFit.optset(options)
                      
-    obj_func = zmq_obj_function(socket)
+    obj_func = zmq_obj_function(socket, config["direction"])
 
     results = None
     history = None
@@ -109,6 +109,8 @@ def main():
         return
 
     # Send the best results
+    if (config["direction"] == "max"):
+        results.optval = -results.optval
     socket.send(json.dumps({ "value": results.optval, "parameters": results.optpar.tolist() , "history": history.tolist(), "steps": len(history) }).encode('utf-8'))
     
     print("Steps taken: {}".format(len(history)))

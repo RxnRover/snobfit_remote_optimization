@@ -5,8 +5,9 @@ from AbortException import AbortException
 
 class zmq_obj_function:
 
-    def __init__(self, socket):
+    def __init__(self, socket, direction="min"):
         self.socket = socket
+        self.direction = direction
 
     def __call__(self, x):
         return self.request_evaluation(x)
@@ -23,6 +24,12 @@ class zmq_obj_function:
         
         if (reply == b"abort"):
             raise AbortException()
+
+        # Process reply
+        function_value = float(reply)
         
-        return float(reply)
+        if (self.direction == "max"):
+            function_value = -function_value
+        
+        return function_value
         
