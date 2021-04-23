@@ -3,8 +3,20 @@ import json
 def generate_default_config(filename):
     """Generates a default configuration file"""
 
-    config = { "ip_address" : "tcp://127.0.0.1", # localhost using tcp
-               "port"       : "5555",            # default port
+    config = {
+        "init_from_config": True,
+        "param_init": [ 33.333, 33.333, 30 ],
+        "bounds": [ [ 0, 50 ],
+		    [ 0, 50 ],
+		    [ 28, 68 ] ],
+        "budget": 1000,
+        "options": { "minfcall": None,
+		     "maxmp": None,
+		     "maxfail": 5,
+		     "verbose": False
+        },
+        "ip_address" : "tcp://127.0.0.1", # localhost using tcp
+        "port"       : "5555",            # default port
     }
 
     try:

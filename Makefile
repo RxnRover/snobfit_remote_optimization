@@ -5,6 +5,7 @@ PROJECT = "sqsnobfit"
 
 DOCS = documentation
 
+CONFIG = config
 SRCDIR = src
 SCRIPTDIR = scripts
 
@@ -35,7 +36,7 @@ venv :
 
 run :
 	@source $(VENVDIR)/bin/activate; \
-	$(PYTHON) $(SRCDIR)/main.py default-config.json --default-config; \
+	$(PYTHON) $(SRCDIR)/main.py ./config/default-config.json --default-config; \
 	deactivate
 
 output :
@@ -48,11 +49,12 @@ veryclean : clean
 	rm -rf ./$(VENVDIR)
 
 tar: clean
-	tar zcvf ./$(PROJECT).tgz README.* LICENSE requirements.txt $(DOCS) $(SRCDIR) Makefile $(SCRIPTDIR)
+	tar zcvf ./$(PROJECT).tgz README.* LICENSE requirements.txt $(DOCS) $(SRCDIR) \
+	         Makefile $(SCRIPTDIR) $(CONFIG)
 
 zip : clean
-	zip -r ./$(PROJECT).zip README.* LICENSE requirements.txt $(DOCS) $(SRCDIR) Makefile $(SCRIPTDIR)
-
+	zip -r ./$(PROJECT).zip README.* LICENSE requirements.txt $(DOCS) $(SRCDIR) \
+	       Makefile $(SCRIPTDIR) $(CONFIG)
 help:
 	@echo " Makefile usage:"
 	@echo "	make clean   - remove compressed files and __pycache__"

@@ -86,7 +86,13 @@ def main():
     address = config["ip_address"] + ":" + config["port"]
     socket = init_socket(address)
 
-    initial_parameters, bounds, budget, options = initial_handshake(socket)
+    initial_parameters = config["param_init"]
+    bounds = config["bounds"]
+    budget = config["budget"]
+    options = config["options"]
+
+    if (not config["init_from_config"]):
+        initial_parameters, bounds, budget, options = initial_handshake(socket)
 
     options = SQSnobFit.optset(options)
                      

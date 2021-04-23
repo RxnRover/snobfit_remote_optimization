@@ -139,3 +139,14 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# Compressed files
+*.tgz
+*.zip
+
+# Project-specific
+output/
+
+# Only ship with the default configuration file
+config/*
+!config/default-config.json
