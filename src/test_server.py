@@ -93,7 +93,7 @@ def main():
             abort_i = 0
             
         elif (type(json.loads(request)) == list):
-            result = rosenbrock(json.loads(request))
+            result = branin(json.loads(request))
             reply = json.dumps(result).encode('utf-8')
             abort_i += 1
         else:
