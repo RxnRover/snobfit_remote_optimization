@@ -2,6 +2,10 @@
 
 This project employs SQSnobFit to optimize a function calculated remotely. This is done by providing SQSnobFit with an objective function that sends parameters to and receives function values from a remote calculator using ZeroMQ message queues. NOTE: The function provider must be running and ready to accept messages before this program is run, or this program will hang on the first request.
 
+This optimization code is designed as part of the 
+[SQSnobFit Plugin](https://github.com/RxnRover/plugin_sqsnobfit) for 
+[Rxn Rover](https://github.com/RxnRover/RxnRover).
+
 # Installation
 
 It is recommended that dependencies are installed using a virtual environment,
