@@ -4,7 +4,7 @@
 call ..\venv\Scripts\activate.bat
 
 :: Run the Python optimizer using the default "python" command *must be in PATH*
-python "..\src\main.py" "..\config\2xflow_percent_temperature.json"
+python "..\src\main.py" "..\config\default-config.json"
 
 :: Deactivate the virtual environment when finished
 call ..\venv\Scripts\deactivate.bat
